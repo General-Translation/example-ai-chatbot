@@ -1,14 +1,18 @@
-import type { NextConfig } from "next";
+import { withGTConfig } from 'gt-next/config';
+import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
   experimental: {},
   images: {
     remotePatterns: [
       {
-        hostname: "avatar.vercel.sh",
+        hostname: 'avatar.vercel.sh',
       },
     ],
   },
 };
 
-export default nextConfig;
+export default withGTConfig(nextConfig, {
+  locales: ['en', 'es', 'zh', 'fr'],
+  defaultLocale: 'en',
+});
